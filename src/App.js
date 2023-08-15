@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// Importation des modules nécessaires
+import React from "react"; // Importe le module React pour créer des composants.
+import "./App.css"; // Importe le fichier CSS associé à ce composant.
+import QuoteBox from "./components/QuoteBox"; // Importe le composant QuoteBox depuis le dossier 'components'.
 
+// Définition du composant fonctionnel App
 function App() {
+  // Le rendu du composant
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QuoteBox />
     </div>
   );
 }
 
+// Exporte le composant App pour qu'il puisse être utilisé dans d'autres fichiers/modules.
 export default App;

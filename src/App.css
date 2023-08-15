@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap");
+
+:root {
+  --primary-color: #a8d5ba; /* Vert doux */
+  --secondary-color: #ffe156; /* Jaune doux */
+  --text-color: #4b5548; /* Gris terreux */
+  --button-bg: #ffc857; /* Orange doux */
+  --button-hover-bg: #ffa539; /* Orange foncé */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  font-family: "Cormorant Garamond", serif;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  animation: gradientBG 20s ease infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes gradientBG {
+  0%,
+  100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#quote-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2em;
+  overflow: hidden;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Légère transparence pour un effet doux */
+}
+
+#text {
+  white-space: pre-wrap; /* Permet au texte de passer à la ligne */
+  overflow: hidden;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+  word-wrap: break-word;
+  max-width: 90%;
+  margin: 0 auto;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#author {
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 1s;
+  font-weight: 600; /* Pour donner un peu plus d'importance à l'auteur */
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#new-quote,
+#tweet-quote {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif; /* Pour un effet doux et relaxant */
+}
+
+#new-quote:hover,
+#tweet-quote:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--button-hover-bg);
 }
